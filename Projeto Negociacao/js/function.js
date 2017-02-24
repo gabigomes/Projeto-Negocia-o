@@ -51,7 +51,7 @@ function MostrarMercadorias(descricao){
 
     $.post("php/select.php",{
 
-        sql: "SELECT codigo, tipo, descricao, quantidade, concat('R$ ',format(preco,2,'de_DE')) as preco, CASE negociacao WHEN 0 THEN '<font color=red><b>Compra</b></font>' WHEN 1 THEN '<font color=green><b>Venda</b></font>' END FROM mercadoria WHERE descricao LIKE '%" + descricao.replace("'", "''") + "%'"
+        sql: "SELECT codigo, tipo, descricao, quantidade, concat('R$ ',format(preco,2,'de_DE')) as preco, CASE negociacao WHEN 1 THEN '<font color=red><b>Compra</b></font>' WHEN 0 THEN '<font color=green><b>Venda</b></font>' END FROM mercadoria WHERE descricao LIKE '%" + descricao.replace("'", "''") + "%'"
 
     }, function(data, status){
 
